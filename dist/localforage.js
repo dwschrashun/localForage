@@ -699,7 +699,8 @@ function _isEncodedBlob(value) {
 // ready when it's been initialized (default) *and* there are no pending
 // operations on the database (initiated by some other instances).
 function _fullyReady(callback) {
-    var self = this;
+  var self = this;
+  callback = callback || function () {};
 
     var promise = self._initReady().then(function () {
         var dbContext = dbContexts[self._dbInfo.name];
